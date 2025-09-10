@@ -2,6 +2,8 @@ import random
 
 colours = ["Red", "Green", "Blue"]
 num_colours = len(colours)
+spin_counter = 0
+results = {}
 
 print("\nHello! Welcome to Wheel of Colours.")
 #tells the user of the default colours on the wheel
@@ -15,6 +17,9 @@ while user_command != "stop":
     # '-1' to prevent it from getting index out of range
     # as indexing in list starts from 0 i.e. first value
     random_colour = random.randint(0, num_colours - 1)
+
+    spin_counter += 1
+
     print(colours[random_colour])
     user_command = input("spin/stop:  ")
 
