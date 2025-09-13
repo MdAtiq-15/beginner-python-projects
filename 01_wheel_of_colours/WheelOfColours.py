@@ -1,6 +1,6 @@
 import random
 
-colours = ["Red", "Green", "Blue"]
+colours = ["Red", "Green", "Blue", "Orange", "Yellow", "White"]
 num_colours = len(colours)
 spin_counter = 0
 results = {}
@@ -33,7 +33,8 @@ while user_command != "stop":
     print(f"\nNumber of spins = {spin_counter}\n")
     user_command = input("spin/stop:  ")
 
+# Printing results in order (highest to lowest)
 print("\n Results: \n")
-for key, value in results.items():
+for key, value in sorted(results.items(), key=lambda item: item[1], reverse=True):
     print(f"{key} : {value}")
 print("\nThank you using Wheel of Colours!")

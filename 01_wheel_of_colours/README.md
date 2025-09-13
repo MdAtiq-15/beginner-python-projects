@@ -17,3 +17,12 @@ Version 2.0:
 
     Added a counter to count the number of spins done and dictionary 'results' that store the colour(as key)
     and number of times(as a value) they were chosen
+
+Version 2.1:
+
+    Prints the result in decending order.
+
+    What I learnt:
+    I learnt about sorted() method to sort any iterable also the use of lamba function in python.
+    I used AI for this not to complete my code but to teach me how to print a dictionary in
+    decending order.
