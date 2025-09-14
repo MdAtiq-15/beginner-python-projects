@@ -2,39 +2,36 @@ import random
 
 colours = ["Red", "Green", "Blue", "Orange", "Yellow", "White"]
 num_colours = len(colours)
-spin_counter = 0
-results = {}
 
-def update_results(colour):
-    # check if the colour exists in the dictionary
-    if colour not in results:
-        results[colour] = 1
-        return
-    
-    results[colour] = results.get(colour) + 1
+def wheel_of_colours():
+    spin_counter = 0
+    results = {}
 
-print("\nHello! Welcome to Wheel of Colours.")
-#tells the user of the default colours on the wheel
-print(f"Current colours on the wheel are: {', '.join(colours)} \n")
-print("To spin the wheel type 'spin'")
-print("And to stop type 'stop'\n")
+    print("\nHello! Welcome to Wheel of Colours.")
+    print(f"Current colours on the wheel are: {', '.join(colours)} \n") #tells the user of the default colours on the wheel
+    print("To spin the wheel type 'spin'")
+    print("And to stop type 'stop'\n")
 
-user_command = input("spin/stop:  ")
+    while True:
+        user_command = input("spin/stop:  ").strip().lower()
+        if user_command == "stop":
+            break
+        if user_command != "spin":
+            print("❌ Invalid input! Please type 'spin' or 'stop'.")
+            continue
+        
+        spin_counter += 1
+        random_colour = random.choice(colours)
+        results[random_colour] = results.get(random_colour, 0) + 1
 
-while user_command != "stop":
-    # '-1' to prevent it from getting index out of range
-    # as indexing in list starts from 0 i.e. first value
-    random_colour_index = random.randint(0, num_colours - 1)
+        print(f"🎉 {random_colour} 🎉")
+        print(f"Number of spins so far: {spin_counter}\n")
 
-    spin_counter += 1
-    update_results(colours[random_colour_index])
+    print("\n--- Spin Results ---\n")
+    for key, value in sorted(results.items(), key=lambda item: item[1], reverse=True):
+        print(f"{key}: {value}")
+    print("\nThank you for using Wheel of Colours!")
 
-    print(f"🎉 {colours[random_colour_index]} 🎉")
-    print(f"\nNumber of spins = {spin_counter}\n")
-    user_command = input("spin/stop:  ")
 
-# Printing results in order (highest to lowest)
-print("\n Results: \n")
-for key, value in sorted(results.items(), key=lambda item: item[1], reverse=True):
-    print(f"{key} : {value}")
-print("\nThank you using Wheel of Colours!")
+# Run the program
+wheel_of_colours()

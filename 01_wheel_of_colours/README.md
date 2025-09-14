@@ -5,7 +5,7 @@ DIFFICULTY - 2/4
 
 Version Notes
 
-Version 1.0:
+### Version 1.0:
 
     Very basic interactive colour picker for user. It selects random colour from a list for the user.
 
@@ -13,12 +13,12 @@ Version 1.0:
     Had to recall how to print all the list using '.join()' method and random number generator.
     It will now help me remember these better than tutorials.
 
-Version 2.0:
+### Version 1.1:
 
     Added a counter to count the number of spins done and dictionary 'results' that store the colour(as key)
     and number of times(as a value) they were chosen
 
-Version 2.1:
+### Version 1.2:
 
     Prints the result in decending order.
 
@@ -26,3 +26,8 @@ Version 2.1:
     I learnt about sorted() method to sort any iterable also the use of lamba function in python.
     I used AI for this not to complete my code but to teach me how to print a dictionary in
     decending order.
+
+
+### Version 1.3
+- Refactored code for cleaner structure.
+- Added input validation and improved user experience.
