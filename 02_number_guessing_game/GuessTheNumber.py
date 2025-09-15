@@ -1,10 +1,15 @@
 import random
 
 def guess_the_number():
-    rand_number = random.randint(1, 100)
-    user_attempts = 0
+    print("Hello!\n")
+    print("Please choose your range of numbers to guess.\n")
 
-    print("Hello\n")
+    min_value = int(input("Minimum value:  "))
+    max_value = int(input("Maximum value:  "))
+
+    rand_number = random.randint(min_value, max_value)
+    user_attempts = 0
+    
     user_guess = int(input("Guess the number (between 1 and 100):  "))
 
     while user_guess != rand_number:
