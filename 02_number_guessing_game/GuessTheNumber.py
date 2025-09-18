@@ -1,6 +1,6 @@
 import random
 
-def guess_the_number():
+def guess_the_number(best_score):
     print("Hello!\n")
     print("Please choose your range of numbers to guess.\n")
 
@@ -24,6 +24,9 @@ def guess_the_number():
 
         if user_guess == rand_number:
             print(f"\nCongratulations! You guessed the number in {user_attempts} attempts.\n")
+            if best_score is None or user_attempts < best_score:
+                best_score = user_attempts
+                print(f"🎉 New Best Score: {best_score} attempts!\n")
             break
 
         if user_guess < rand_number:
@@ -33,10 +36,17 @@ def guess_the_number():
         
         if user_attempts == max_attempts:
             print("Game Over!. You ran out of attempts.")
+            print(f"The correct number was {rand_number}.\n")
             break
 
         print(f"{max_attempts - user_attempts} attempts left.\n")
 
 
 #RUN
-guess_the_number()
+best_score = None
+while True:
+    best_score = guess_the_number(best_score)
+    play_again = input("Do you want to play again? (y/n): ").strip().lower()
+    if play_again != 'y':
+        print("Thank you for playing! Goodbye! 👋")
+        break
